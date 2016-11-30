@@ -108,7 +108,7 @@ void EIO_Open(uv_work_t* req) {
   dcb.fOutxDsrFlow = FALSE;
   dcb.fOutxCtsFlow = FALSE;
   dcb.fRtsControl = RTS_CONTROL_ENABLE;
-  dcb.fDtrControl = DTR_CONTROL_ENABLE
+  dcb.fDtrControl = DTR_CONTROL_ENABLE;
 
   dcb.fBinary = true;
   dcb.BaudRate = data->baudRate;
