@@ -108,6 +108,7 @@ void EIO_Open(uv_work_t* req) {
   dcb.fOutxDsrFlow = FALSE;
   dcb.fOutxCtsFlow = FALSE;
   dcb.fRtsControl = RTS_CONTROL_ENABLE;
+  dcb.fAbortOnError = TRUE;
 
   dcb.fBinary = true;
   dcb.BaudRate = data->baudRate;
@@ -277,7 +278,6 @@ void EIO_WatchPort(uv_work_t* req) {
           case ERROR_OPERATION_ABORTED:
           case ERROR_ACCESS_DENIED:
             data->disconnected = true;
-            break;
           default:
             ErrorCodeToString("Reading from COM port (ReadFile)", data->errorCode, data->errorString);
             CloseHandle(hEvent);
@@ -300,7 +300,6 @@ void EIO_WatchPort(uv_work_t* req) {
           case ERROR_OPERATION_ABORTED:
           case ERROR_ACCESS_DENIED:
             data->disconnected = true;
-            break;
           default:
             ErrorCodeToString("Reading from COM port (GetOverlappedResult)", data->errorCode, data->errorString);
             CloseHandle(hEvent);
@@ -356,6 +355,7 @@ void EIO_AfterWatchPort(uv_work_t* req) {
 
   WatchPortBaton* data = static_cast<WatchPortBaton*>(req->data);
   if (data->disconnected) {
+    ClearCommError((HANDLE)data->fd, NULL, NULL);
     data->disconnectedCallback->Call(0, NULL);
     DisposeWatchPortCallbacks(data);
     goto cleanup;
