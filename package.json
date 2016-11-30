@@ -1,6 +1,6 @@
 {
   "name": "serialport-win-fix",
-  "version": "4.0.7",
+  "version": "4.0.7.1",
   "description": "Fork of Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!",
   "author": {
     "name": "Iurii Favi",
