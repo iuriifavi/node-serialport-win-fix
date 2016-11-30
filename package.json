@@ -1,11 +1,16 @@
 {
   "name": "serialport-win-fix",
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "Fork of Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!",
   "author": {
     "name": "Iurii Favi",
     "email": "iurii.favi@gmail.com",
     "url": "http://www.favi.rocks"
+  },
+  "binary": {
+    "module_name": "serialport-win-fix",
+    "module_path": "build/{configuration}/",
+    "host": "https://github.com/iuriifavi/node-serialport-win-fix/releases/download/4.0.7"
   },
   "main": "./lib/serialport",
   "repository": {
@@ -58,7 +63,8 @@
     "lie": "^3.1.0",
     "nan": "^2.4.0",
     "node-pre-gyp": "^0.6.31",
-    "object.assign": "^4.0.3"
+    "object.assign": "^4.0.3",
+    "scapegoat": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
