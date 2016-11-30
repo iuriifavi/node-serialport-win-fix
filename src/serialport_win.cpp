@@ -270,6 +270,7 @@ void EIO_WatchPort(uv_work_t* req) {
     DWORD bytesReadSync = 0;
     if (!ReadFile((HANDLE)data->fd, data->buffer, bufferSize, &bytesReadSync, &ov)) {
       data->errorCode = GetLastError();
+      ErrorCodeToString("ERROR: 273 ->", data->errorCode, data->errorString);
       if (data->errorCode != ERROR_IO_PENDING) {
         // Read operation error
         switch(data->errorCode) {
@@ -294,6 +295,7 @@ void EIO_WatchPort(uv_work_t* req) {
       if (!GetOverlappedResult((HANDLE)data->fd, &ov, &bytesReadAsync, TRUE)) {
         // Read operation error
         data->errorCode = GetLastError();
+        ErrorCodeToString("ERROR: 298 ->", data->errorCode, data->errorString);
         switch(data->errorCode) {
           case ERROR_OPERATION_ABORTED:
           case ERROR_ACCESS_DENIED:
