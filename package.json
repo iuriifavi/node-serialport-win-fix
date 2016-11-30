@@ -1,23 +1,19 @@
 {
-  "name": "serialport",
+  "name": "serialport-win-fix",
   "version": "4.0.6",
-  "description": "Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!",
+  "description": "Fork of Node.js package to access serial ports. Welcome your robotic javascript overlords. Better yet, program them!",
   "author": {
-    "name": "Chris Williams",
-    "email": "voodootikigod@gmail.com",
-    "url": "http://www.voodootikigod.com"
-  },
-  "binary": {
-    "module_name": "serialport",
-    "module_path": "build/{configuration}/",
-    "host": "https://github.com/EmergingTechnologyAdvisors/node-serialport/releases/download/4.0.6"
+    "name": "Iurii Favi",
+    "email": "iurii.favi@gmail.com",
+    "url": "http://www.favi.rocks"
   },
   "main": "./lib/serialport",
   "repository": {
     "type": "git",
-    "url": "git://github.com/EmergingTechnologyAdvisors/node-serialport.git"
+    "url": "git://github.com/iuriifavi/node-serialport-win-fix.git#4x"
   },
   "keywords": [
+    "serial port win fix",
     "serialport",
     "johnny-five",
     "serial port",
@@ -26,6 +22,10 @@
     "nodebots"
   ],
   "maintainers": [
+    {
+      "name": "Iurii Favi",
+      "email": "iurii.favi@gmail.com"
+    },
     {
       "name": "Jacob Rosenthal",
       "email": "jakerosenthal@gmail.com"
